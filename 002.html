@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>豊橋鉄道のお役に立てること — 目次</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', 'Lato', sans-serif; background: #f3f4f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .slide {
+      width: 1280px; height: 720px; background: #fff;
+      position: relative; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .slide-header {
+      background: #fff; border-bottom: 1px solid #f3f4f6;
+      height: 64px; padding: 0 64px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .main-content { flex: 1; padding: 24px 64px 20px; display: flex; flex-direction: column; }
+    .grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; flex: 1;
+    }
+    .agenda-card {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+      padding: 18px 22px; display: flex; align-items: flex-start; gap: 16px;
+      position: relative; overflow: hidden; transition: box-shadow 0.2s;
+    }
+    .agenda-card:hover { box-shadow: 0 4px 24px rgba(59,130,246,0.08); }
+    .agenda-card.highlight { border-left: 3px solid #3B82F6; }
+    .card-number {
+      font-family: 'Lato', sans-serif; font-size: 48px; font-weight: 300;
+      color: #e5e7eb; line-height: 1; flex-shrink: 0; width: 56px; text-align: right;
+    }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0; margin-top: 2px;
+    }
+    .card-body { flex: 1; }
+    .card-title { font-size: 15px; font-weight: 700; color: #0F1B2D; line-height: 1.4; margin-bottom: 3px; }
+    .card-sub { font-size: 12px; font-weight: 400; color: #6b7280; line-height: 1.5; }
+    .card-badge {
+      display: inline-block; font-family: 'Lato', sans-serif; font-size: 10px;
+      font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-top: 5px; letter-spacing: 0.05em;
+    }
+    .badge-demo { background: #dbeafe; color: #1e40af; }
+    .badge-info { background: #f3f4f6; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="slide-header">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:6px; height:40px; background:#3B82F6; border-radius:3px;"></div>
+        <div>
+          <p style="font-family:'Lato',sans-serif; font-size:11px; color:#9ca3af; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:2px;">CONTENTS</p>
+          <h1 style="font-size:22px; font-weight:700; color:#0F1B2D; line-height:1.2;">目次</h1>
+        </div>
+      </div>
+      <div style="opacity:0.4; display:flex; align-items:center; gap:8px;">
+        <i class="fas fa-train" style="color:#0F1B2D; font-size:16px;"></i>
+        <p style="font-family:'Lato',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#0F1B2D;">豊橋鉄道</p>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="grid">
+
+        <!-- 01 私にできること -->
+        <div class="agenda-card highlight">
+          <div class="card-number">01</div>
+          <div class="card-icon" style="background:#eff6ff; color:#3B82F6;"><i class="fas fa-lightbulb"></i></div>
+          <div class="card-body">
+            <div class="card-title">私にできること</div>
+            <div class="card-sub">AI × 低コスト開発で、画面制作から<br>小規模テストまで素早く実行できます。</div>
+          </div>
+        </div>
+
+        <!-- 02 デモ01: QRパス -->
+        <div class="agenda-card">
+          <div class="card-number">02</div>
+          <div class="card-icon" style="background:#dbeafe; color:#3B82F6;"><i class="fas fa-qrcode"></i></div>
+          <div class="card-body">
+            <div class="card-title">デモ01: デジタルチケット & QRパス</div>
+            <div class="card-sub">無人駅の切符事前販売で<br>車掌さんのオペレーション軽減へ。</div>
+            <span class="card-badge badge-demo">DEMO APP</span>
+          </div>
+        </div>
+
+        <!-- 03 デモ02: スマートサポート -->
+        <div class="agenda-card">
+          <div class="card-number">03</div>
+          <div class="card-icon" style="background:#d1fae5; color:#10b981;"><i class="fas fa-bell"></i></div>
+          <div class="card-body">
+            <div class="card-title">デモ02: スマートサポート通知</div>
+            <div class="card-sub">無人駅が多い路線で、お年寄りや<br>サポートが必要な方への対応強化。</div>
+            <span class="card-badge badge-demo">DEMO APP</span>
+          </div>
+        </div>
+
+        <!-- 04 デモ03: AI現場メモ -->
+        <div class="agenda-card">
+          <div class="card-number">04</div>
+          <div class="card-icon" style="background:#ede9fe; color:#7c3aed;"><i class="fas fa-clipboard-list"></i></div>
+          <div class="card-body">
+            <div class="card-title">デモ03: AI現場メモ</div>
+            <div class="card-sub">駅員の事務負担を軽減しつつ<br>管理体制を強化し、お客様の安心に。</div>
+            <span class="card-badge badge-demo">DEMO APP</span>
+          </div>
+        </div>
+
+        <!-- 05 デモ04: SNS自動投稿 -->
+        <div class="agenda-card">
+          <div class="card-number">05</div>
+          <div class="card-icon" style="background:#fef3c7; color:#f59e0b;"><i class="fas fa-hashtag"></i></div>
+          <div class="card-body">
+            <div class="card-title">デモ04: AI SNS自動投稿</div>
+            <div class="card-sub">定期発信で地域住民の安心を。<br>社員の負担減でリソースを他に活用。</div>
+            <span class="card-badge badge-demo">DEMO APP</span>
+          </div>
+        </div>
+
+        <!-- 06 コスト感 -->
+        <div class="agenda-card">
+          <div class="card-number">06</div>
+          <div class="card-icon" style="background:#f0fdf4; color:#16a34a;"><i class="fas fa-yen-sign"></i></div>
+          <div class="card-body">
+            <div class="card-title">コスト感</div>
+            <div class="card-sub">各ソリューションのランニングコスト概算。<br>無料枠の活用で低コスト運用が可能。</div>
+            <span class="card-badge badge-info">INFO</span>
+          </div>
+        </div>
+
+        <!-- 07 まとめ -->
+        <div class="agenda-card">
+          <div class="card-number">07</div>
+          <div class="card-icon" style="background:#e0e7ff; color:#4f46e5;"><i class="fas fa-flag-checkered"></i></div>
+          <div class="card-body">
+            <div class="card-title">まとめ</div>
+            <div class="card-sub">お役に立てることの整理と、<br>すぐに動き出せるポイント。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

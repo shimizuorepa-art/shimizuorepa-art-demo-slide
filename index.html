@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>まず、つくってみました。 — 豊橋鉄道</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100vw; height: 100vh; overflow: hidden;
+      background: #0a0a0a;
+      display: flex; align-items: center; justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .deck {
+      width: 1280px; height: 720px; position: relative;
+      flex-shrink: 0; transform-origin: center center;
+    }
+    .slide-frame {
+      position: absolute; inset: 0; display: none; border: none;
+    }
+    .slide-frame.is-active { display: block; }
+    .slide-frame iframe { width: 1280px; height: 720px; border: none; display: block; }
+    .slide-ui { position: fixed; inset: 0; pointer-events: none; z-index: 100; }
+    .slide-counter {
+      position: absolute; bottom: 1.5rem; left: 2rem;
+      font-size: .8rem; font-family: "SF Mono", monospace;
+      color: rgba(255,255,255,.5); letter-spacing: .08em;
+    }
+    .slide-nav {
+      position: absolute; bottom: 1.1rem; right: 1.5rem;
+      display: flex; gap: .5rem; pointer-events: all;
+    }
+    .slide-nav button {
+      background: rgba(10,20,40,.85); border: 1px solid rgba(255,255,255,.2);
+      color: #fff; padding: .5rem 1.2rem; border-radius: 6px;
+      cursor: pointer; font-size: .8rem; font-weight: 600; letter-spacing: .04em;
+      transition: background .15s, color .15s, transform .1s;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+    .slide-nav button:hover { background: rgba(26,54,93,.95); transform: translateY(-1px); }
+    .slide-nav button:active { transform: scale(.97); }
+    @page { size: 338.67mm 190.5mm; margin: 0; }
+    @media print {
+      * { print-color-adjust: exact !important; -webkit-print-color-adjust: exact !important; }
+      html, body { width: 338.67mm; height: auto; display: block; background: #fff; overflow: visible; }
+      .deck { transform: none !important; position: static; width: 338.67mm; height: auto; display: block; }
+      .slide-frame { position: static !important; display: block !important; width: 338.67mm; height: 190.5mm; page-break-after: always; page-break-inside: avoid; overflow: hidden; }
+      .slide-frame iframe { width: 1280px; height: 720px; border: none; }
+      .slide-ui { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="deck">
+  <div class="slide-frame"><iframe src="001.html"></iframe></div>
+  <div class="slide-frame"><iframe src="002.html"></iframe></div>
+  <div class="slide-frame"><iframe src="003.html"></iframe></div>
+  <div class="slide-frame"><iframe src="004.html"></iframe></div>
+  <div class="slide-frame"><iframe src="005.html"></iframe></div>
+  <div class="slide-frame"><iframe src="006.html"></iframe></div>
+  <div class="slide-frame"><iframe src="007.html"></iframe></div>
+  <div class="slide-frame"><iframe src="009.html"></iframe></div>
+  <div class="slide-frame"><iframe src="011.html"></iframe></div>
+</div>
+<div class="slide-ui">
+  <div class="slide-counter">01 / 11</div>
+  <div class="slide-nav">
+    <button id="btn-prev">← Prev</button>
+    <button id="btn-next">Next →</button>
+    <button id="btn-pdf">PDF</button>
+    <button id="btn-fs">⛶</button>
+  </div>
+</div>
+<script>
+(() => {
+  const frames = () => [...document.querySelectorAll('.slide-frame')];
+  let cur = 0;
+  function show(n) {
+    const all = frames();
+    cur = Math.max(0, Math.min(n, all.length - 1));
+    all.forEach((f, i) => f.classList.toggle('is-active', i === cur));
+    const el = document.querySelector('.slide-counter');
+    if (el) el.textContent = `${String(cur+1).padStart(2,'0')} / ${String(all.length).padStart(2,'0')}`;
+  }
+  const next = () => show(cur + 1);
+  const prev = () => show(cur - 1);
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight','ArrowDown',' '].includes(e.key)) { e.preventDefault(); next(); }
+    if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); prev(); }
+    if (e.key==='f'||e.key==='F') toggleFullscreen();
+  });
+  document.querySelector('.deck')?.addEventListener('click', e => { if (!e.target.closest('.slide-ui')) next(); });
+  document.getElementById('btn-prev')?.addEventListener('click', prev);
+  document.getElementById('btn-next')?.addEventListener('click', next);
+  document.getElementById('btn-fs')?.addEventListener('click', toggleFullscreen);
+  document.getElementById('btn-pdf')?.addEventListener('click', () => window.print());
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+    else document.exitFullscreen();
+  }
+  function scaleDeck() {
+    const deck = document.querySelector('.deck');
+    if (!deck) return;
+    const scale = Math.min(window.innerWidth/1280, window.innerHeight/720);
+    deck.style.transform = `scale(${scale})`;
+  }
+  window.addEventListener('resize', scaleDeck);
+  scaleDeck();
+  show(0);
+})();
+</script>
+</body>
+</html>

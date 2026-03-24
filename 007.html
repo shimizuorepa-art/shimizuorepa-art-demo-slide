@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>豊橋鉄道のお役に立てること — デモ04: AI SNS自動投稿</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', 'Lato', sans-serif; background: #e5e7eb; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .slide { width: 1280px; height: 720px; background: #ffffff; position: relative; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <div class="slide">
+
+    <!-- Header -->
+    <div style="position:absolute; top:0; left:0; right:0; height:64px; padding:0 64px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #f3f4f6; background:#fff; z-index:10;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:6px; height:40px; background:#3B82F6;"></div>
+        <div>
+          <p style="font-family:'Lato',sans-serif; font-size:11px; color:#9ca3af; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:2px;">DEMO 04</p>
+          <h1 style="font-size:22px; font-weight:700; color:#0F1B2D; line-height:1.2;">AI SNS自動投稿</h1>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; opacity:0.4;">
+        <i class="fas fa-train" style="color:#0F1B2D; font-size:16px;"></i>
+        <p style="font-family:'Lato',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#0F1B2D;">豊橋鉄道</p>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div style="position:absolute; top:64px; bottom:0; left:0; right:0; display:flex;">
+
+      <!-- Left Area 55% -->
+      <div style="width:55%; padding:28px 64px; display:flex; flex-direction:column; justify-content:flex-start; gap:14px; overflow:hidden;">
+
+        <div style="width:66px; height:66px; background:#eff6ff; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <i class="fab fa-twitter" style="color:#60a5fa; font-size:28px;"></i>
+        </div>
+
+        <h2 style="font-size:24px; font-weight:700; color:#0F1B2D; line-height:1.3;">定期発信で地域住民の安心を<br>社員の負担減でリソースを他に</h2>
+
+        <p style="font-size:13px; color:#6b7280; line-height:1.7;">
+          AIが文章を自動生成し、承認フローを経て投稿。定期的な情報発信による<br>
+          地域住民の安心感と、社員の負担軽減を両立します。
+        </p>
+
+        <!-- Approval Workflow -->
+        <div>
+          <p style="font-size:11px; font-weight:700; color:#6b7280; letter-spacing:0.12em; text-transform:uppercase; font-family:'Lato',sans-serif; margin-bottom:12px;">APPROVAL WORKFLOW</p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:flex-start; gap:12px;">
+              <div style="width:32px; height:32px; background:#3B82F6; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <span style="font-size:14px; font-weight:700; color:#fff; font-family:'Lato',sans-serif;">1</span>
+              </div>
+              <div>
+                <p style="font-size:12px; font-weight:700; color:#0F1B2D; margin-bottom:2px;">作成者</p>
+                <p style="font-size:12px; color:#6b7280; line-height:1.5;">テーマ・天気を選択 → AIで文章生成</p>
+              </div>
+            </div>
+            <div style="width:1px; height:10px; background:#d1d5db; margin-left:12px;"></div>
+            <div style="display:flex; align-items:flex-start; gap:12px;">
+              <div style="width:32px; height:32px; background:#3B82F6; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <span style="font-size:14px; font-weight:700; color:#fff; font-family:'Lato',sans-serif;">2</span>
+              </div>
+              <div>
+                <p style="font-size:12px; font-weight:700; color:#0F1B2D; margin-bottom:2px;">承認者</p>
+                <p style="font-size:12px; color:#6b7280; line-height:1.5;">プレビュー確認 → 承認 or 差し戻し</p>
+              </div>
+            </div>
+            <div style="width:1px; height:10px; background:#d1d5db; margin-left:12px;"></div>
+            <div style="display:flex; align-items:flex-start; gap:12px;">
+              <div style="width:32px; height:32px; background:#3B82F6; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <span style="font-size:14px; font-weight:700; color:#fff; font-family:'Lato',sans-serif;">3</span>
+              </div>
+              <div>
+                <p style="font-size:12px; font-weight:700; color:#0F1B2D; margin-bottom:2px;">自動投稿</p>
+                <p style="font-size:12px; color:#6b7280; line-height:1.5;">X API v2で自動投稿・完了確認</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px 16px;">
+          <i class="fas fa-clock" style="color:#3B82F6; font-size:18px;"></i>
+          <span style="font-size:12px; color:#475569; font-family:'Lato',sans-serif; font-weight:600;">07:00 / 12:00 / 18:00（定時自動投稿）</span>
+        </div>
+
+      </div>
+
+      <!-- Right Area 45% -->
+      <div style="width:45%; background:#f9fafb; padding:28px 40px; display:flex; flex-direction:column; gap:18px; overflow:hidden;">
+
+        <!-- Tech Stack -->
+        <div>
+          <p style="font-size:11px; font-weight:700; color:#6b7280; letter-spacing:0.12em; text-transform:uppercase; font-family:'Lato',sans-serif; margin-bottom:10px;">TECH STACK</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span style="background:#dbeafe; color:#1d4ed8; border:1.5px solid #93c5fd; border-radius:9999px; padding:4px 12px; font-size:11px; font-weight:700; font-family:'Lato',sans-serif;">Gemini 2.0 Flash</span>
+            <span style="background:#0f172a; color:#fff; border:1.5px solid #334155; border-radius:9999px; padding:4px 12px; font-size:11px; font-weight:700; font-family:'Lato',sans-serif;">X API v2</span>
+            <span style="background:#1e293b; color:#e2e8f0; border:1.5px solid #475569; border-radius:9999px; padding:4px 12px; font-size:11px; font-weight:700; font-family:'Lato',sans-serif;">GitHub Actions</span>
+          </div>
+        </div>
+
+        <!-- Key Benefits -->
+        <div>
+          <p style="font-size:11px; font-weight:700; color:#6b7280; letter-spacing:0.12em; text-transform:uppercase; font-family:'Lato',sans-serif; margin-bottom:10px;">KEY BENEFITS</p>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:14px 16px; display:flex; align-items:center; gap:12px;">
+              <i class="fas fa-shield-alt" style="color:#3B82F6; font-size:20px; flex-shrink:0;"></i>
+              <div>
+                <p style="font-size:12px; font-weight:700; color:#0F1B2D; margin-bottom:2px;">承認フロー付きで安心</p>
+                <p style="font-size:11px; color:#6b7280;">管理体制を維持したまま効率化</p>
+              </div>
+            </div>
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:14px 16px; display:flex; align-items:center; gap:12px;">
+              <i class="fas fa-users" style="color:#3B82F6; font-size:20px; flex-shrink:0;"></i>
+              <div>
+                <p style="font-size:12px; font-weight:700; color:#0F1B2D; margin-bottom:2px;">地域住民との接点強化</p>
+                <p style="font-size:11px; color:#6b7280;">定期発信で「ちゃんと動いてる」安心感</p>
+              </div>
+            </div>
+            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:14px 16px; display:flex; align-items:center; gap:12px;">
+              <i class="fas fa-hand-holding-heart" style="color:#3B82F6; font-size:20px; flex-shrink:0;"></i>
+              <div>
+                <p style="font-size:12px; font-weight:700; color:#0F1B2D; margin-bottom:2px;">社員のリソースを他に活用</p>
+                <p style="font-size:11px; color:#6b7280;">SNS運用の負担軽減で本来の業務に集中</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cost Box -->
+        <div style="display:flex; gap:10px; margin-top:auto;">
+          <div style="flex:1; background:#f0fdf4; border:1.5px solid #86efac; border-radius:10px; padding:12px 14px;">
+            <p style="font-size:14px; font-weight:900; color:#15803d; font-family:'Lato',sans-serif; margin-bottom:2px;">¥0 / 月</p>
+            <p style="font-size:10px; color:#166534;">最小構成</p>
+          </div>
+          <div style="flex:1; background:#fffbeb; border:1.5px solid #fcd34d; border-radius:10px; padding:12px 14px;">
+            <p style="font-size:14px; font-weight:900; color:#b45309; font-family:'Lato',sans-serif; margin-bottom:2px;">〜¥15,000 / 月</p>
+            <p style="font-size:10px; color:#92400e;">推奨（X Basic含む）</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
